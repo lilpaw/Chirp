@@ -19,3 +19,4 @@ delete '/sessions/:id' do
   session.delete(:user_id)
   redirect '/'
 end
+

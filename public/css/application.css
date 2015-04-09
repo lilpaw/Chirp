@@ -1,0 +1,20 @@
+#logo {
+  width: 100px;
+  display: block;
+  margin-left: 300px;
+ /* margin-right: 50%;*/
+}
+
+#footer {
+  transform: scale(0.40, 0.40);
+  display: block;
+  margin: 50px;
+  bottom: 250px;
+}
+
+
+.forms {
+  display: block;
+  margin-left: 250px;
+  padding: 50px;
+}
