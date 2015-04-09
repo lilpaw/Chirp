@@ -1,0 +1,17 @@
+<h1>Chirp</h1>
+
+<% @tweets.each do |tweet| %>
+  <div>
+    <%= tweet.body %>
+    <form action="/tweets/<%=tweet.id%>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete dis">
+    </form>
+    <a href="/tweets/<%=tweet.id%>/edit">Edit dis</a>
+  </div>
+
+<% end %>
+
+<div class="new-tweet-button">
+<a href="/tweets/new">New Tweet</a>
+</div>
