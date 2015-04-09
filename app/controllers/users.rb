@@ -5,7 +5,7 @@ end
 
 #user sign up
 get '/users/new' do
-  erb :signup
+  erb :"user/signup"
 end
 
 post '/users' do
