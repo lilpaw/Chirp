@@ -1,4 +1,4 @@
 class Tweet < ActiveRecord::Base
-  # Remember to create a migration!
+  #add validations
   belongs_to :user
 end
