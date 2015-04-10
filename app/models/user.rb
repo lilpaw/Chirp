@@ -2,8 +2,6 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
-  has_many :tweets
-
   include BCrypt
 
   def password
@@ -16,6 +14,14 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  validates :username, uniqueness: true
-  validates :username, :name, presence: true
+  # validates :username, uniqueness: true
+  # validates :username, :name, presence: true
+
+  has_many :tweets
+
+  has_many :stalker_relationships, class_name: "Relationship", foreign_key: "prey_id"
+  has_many :stalkers, class_name: "User", through: :stalker_relationships
+
+  has_many :prey_relationships, class_name: "Relationship", foreign_key: "stalker_id"
+  has_many :preys, class_name: "User", through: :prey_relationships
 end
