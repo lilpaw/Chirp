@@ -1,16 +1,17 @@
-
+<div class="forms">
 <% @tweets.each do |tweet| %>
   <div>
     <%= tweet.body %>
     <form action="/tweets/<%=tweet.id%>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete dis">
+      <input type="hidden" name="_method" value="Delete">
+      <input type="submit" value="Delete Chirp">
     </form>
-    <a href="/tweets/<%=tweet.id%>/edit">Edit dis</a>
+    <a href="/tweets/<%=tweet.id%>/edit">Edit Chirp</a>
   </div>
 
 <% end %>
 
 <div class="new-tweet-button">
 <a href="/tweets/new">New Tweet</a>
+</div>
 </div>
