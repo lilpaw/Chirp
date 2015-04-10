@@ -1,21 +1,31 @@
 get '/tweets' do
   @tweets = Tweet.all
+
   erb :"tweets/index"
 end
 
 get '/tweets/new' do
+  ensure_logged_in!
+
   erb :"tweets/new"
 end
 
 post '/tweets' do
-  new_tweet = Tweet.new(body: params[:tweet])
-  if new_tweet.save
+  ensure_logged_in!
+
+  @new_tweet = Tweet.new(
+    body: params[:tweet],
+    user_id: current_user.id,
+  )
+
+  if @new_tweet.save
     status 200
     redirect '/tweets'
   else
     status 400
     'tweet failed to save'
   end
+
 end
 
 #delete tweet

@@ -11,7 +11,8 @@ post '/sessions' do
     redirect '/'
   else
     status 400
-    redirect '/sessions/new'
+    @login_failed = true
+    erb :"user/login"
   end
 end
 
