@@ -1,12 +1,3 @@
-<div class="signup_button">
-    <% if !current_user %>
-      <button type="button"> <a href="/users/new">Sign Up!</a></button>
-    <% else %>
-      <form action="/sessions/<%= current_user.id %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign Out">
-    <% end %>
-</div>
 
 <div class="forms">
   <% if @login_failed %>
@@ -22,6 +13,16 @@
     <input type="submit" value="Login">
 
   </form>
+</div>
+
+<div class="signup_button">
+    <% if !current_user %>
+      <button type="button"> <a href="/users/new">Sign Up!</a></button>
+    <% else %>
+      <form action="/sessions/<%= current_user.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign Out">
+    <% end %>
 </div>
 
 <div id="footer">
