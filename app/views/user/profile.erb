@@ -1,0 +1,26 @@
+
+<div class="forms">
+<% @user_tweets.each do |tweet| %>
+  <div>
+    <%= tweet.body %>
+    <form action="/tweets/<%=tweet.id%>" method="post">
+      <input type="hidden" name="_method" value="Delete">
+      <input type="submit" value="Delete Chirp">
+    </form>
+    <a href="/tweets/<%=tweet.id%>/edit">Edit Chirp</a>
+  </div>
+
+<% end %>
+
+  <div class="new-tweet-button">
+  <a href="/tweets/new">New Chirp</a>
+  </div>
+  </div>
+
+  <button type="button"> <a href="/tweets">View All Chirps!</a></button>
+
+
+
+  <form action="/sessions/<%= current_user.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Sign Out">

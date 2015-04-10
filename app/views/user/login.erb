@@ -1,3 +1,13 @@
+<div class="signup_button">
+    <% if !current_user %>
+      <button type="button"> <a href="/users/new">Sign Up!</a></button>
+    <% else %>
+      <form action="/sessions/<%= current_user.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign Out">
+    <% end %>
+</div>
+
 <div class="forms">
   <% if @login_failed %>
     <h4>Bad username or password</h4>
@@ -12,4 +22,8 @@
     <input type="submit" value="Login">
 
   </form>
+</div>
+
+<div id="footer">
+    <img src="http://i.imgur.com/yx9gQT8.png">
 </div>
