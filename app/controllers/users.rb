@@ -12,7 +12,7 @@ post '/users' do
   @user = User.new(params)
   if @user.save
     status 200
-    redirect '/'
+    redirect '/tweets'
   else
     status 400
     redirect '/users/new'

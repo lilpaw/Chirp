@@ -1,12 +1,13 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+
   has_many :tweets
 
   include BCrypt
 
   def password
+    p password_hash
     @password ||= Password.new(password_hash)
   end
 
