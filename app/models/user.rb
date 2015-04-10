@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  # validates :username, uniqueness: true
-  # validates :username, :name, presence: true
+  validates :username, uniqueness: true
+  validates :username, :name, presence: true
 
   has_many :tweets
 
