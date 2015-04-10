@@ -20,7 +20,7 @@ post '/tweets' do
 
   if @new_tweet.save
     status 200
-    redirect '/tweets'
+    redirect "/users/#{current_user.id}/profile"
   else
     status 400
     'tweet failed to save'
@@ -33,7 +33,7 @@ delete '/tweets/:id' do
   tweet = Tweet.where(id: params[:id]).first
   if tweet.destroy
     status 200
-    redirect '/tweets'
+    redirect '/users/#{current_user.id}/profile'
   else
     status 400
     'tweet failed to delete'
@@ -49,5 +49,5 @@ end
 put '/tweets/:id' do
   @tweet = Tweet.where(id: params[:id]).first
   @tweet.update(body: params[:body])
-  redirect '/tweets'
+  redirect '/users/#{current_user.id}/profile'
 end
